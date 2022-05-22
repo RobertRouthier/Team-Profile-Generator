@@ -14,20 +14,20 @@ function createManager() {
     },
     {
       type: "input",
-      name: "managerName",
-      message: "What is the managers name?",
+      name: "id",
+      message: "What is the managers ID number?",
     },
 
     {
       type: "input",
-      name: "managerName",
-      message: "What is the managers name?",
+      name: "managerEmail",
+      message: "What is the managers email?",
     },
 
     {
       type: "input",
-      name: "managerName",
-      message: "What is the managers name?",
+      name: "managerNumber",
+      message: "What is the managers office number?",
     }
   ])
   .then(answers =>{
