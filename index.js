@@ -44,6 +44,7 @@ function createManager() {
         answers.managerOfficeNumber
       );
       employeeArr.push(manager);
+      console.log('SUCCESS, you have added a manager')
       addEmployees();
     });
 }
@@ -68,7 +69,16 @@ function addEmployees() {
         default:
           exit();
       }
-    });
+    })
+    .then((answers) => {
+        exit(answers)
+        
+    })
+    .catch((error) => {
+        if(error){
+            console.log('There seems to be an error', error)
+        }
+    })
 }
 
 function addEngineer() {
@@ -105,7 +115,10 @@ function addEngineer() {
         answers.engineerGitHub
       );
       employeeArr.push(engineer)
+      console.log('SUCCESS, you have added an engineer')
+      addEmployees()
     });
+    
 }
 function addIntern() {
     inquirer
@@ -117,7 +130,7 @@ function addIntern() {
         },
         {
           type: "input",
-          name: "internrId",
+          name: "internId",
           message: "What is the intern ID number?",
         },
   
@@ -134,15 +147,20 @@ function addIntern() {
         },
       ])
       .then((answers) => {
-        const intern= new intern(
+        const intern= new Intern(
           answers.internName,
           answers.internId,
           answers.internEmail,
           answers.internSchool
         );
         employeeArr.push(intern)
+        console.log('SUCCESS, you have added an intern')
+        addEmployees()
       });
+      
   }
+
+
 
 
 
@@ -154,8 +172,8 @@ function createCard(employee){
             <h4>${employee.role}</h4>
 
             <p>${employee.id}</p>
-            <p>${employee.email}}</p>
-            <p>${employee.managerOfficeNumber || employee.engineerGitHub || employee.school}</p>
+            <p>${employee.email}</p>
+            <p>${employee.managerOfficeNumber} || ${employee.engineerGitHub} || ${employee.school}</p>
         </div>
     `
 }
@@ -176,5 +194,9 @@ function createHtml(){
     `
 }
 
+function exit(answers){
 fs.writeFileSync("./index.html", createHtml())
+
+
+}
 init();
