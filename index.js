@@ -169,11 +169,11 @@ function createCard(employee){
     return  `
         <div class = "card">
             <h3>${employee.name}</h3>
-            <h4>${employee.role}</h4>
+            <h4>${employee.getRole()}</h4>
 
             <p>${employee.id}</p>
             <p>${employee.email}</p>
-            <p>${employee.managerOfficeNumber} || ${employee.engineerGitHub} || ${employee.school}</p>
+            <p>${employee.getExtra()}</p>
         </div>
     `
 }
@@ -193,11 +193,12 @@ function createHtml(){
     </body>
     </html>
     `
+    
 }
 
 function exit(answers){
 fs.writeFileSync("./index.html", createHtml())
-console.log('SUCCESS, your team cards have been generated!!!')
+
 
 }
 init();
