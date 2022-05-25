@@ -168,12 +168,12 @@ function createCard(employee){
     
     return  `
         <div class = "card">
-            <h3>${employee.name}</h3>
-            <h4>${employee.getRole()}</h4>
+            <h3 class="card-head">${employee.name}</h3>
+            <h4 class="card-head">${employee.getRole()}</h4>
 
-            <p>${employee.id}</p>
-            <p>${employee.email}</p>
-            <p>${employee.getExtra()}</p>
+            <p class="card-item">${employee.id}</p>
+            <p class="card-item">${employee.email}</p>
+            <p class="card-item">${employee.getExtra()}</p>
         </div>
     `
 }
@@ -189,7 +189,12 @@ function createHtml(){
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+        <div class="header">
+          Team Profile
+        </div>
+        <div class="card-area">
         ${employeeArr.map(createCard)}
+        </div>
     </body>
     </html>
     `
