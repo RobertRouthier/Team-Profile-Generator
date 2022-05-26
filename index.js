@@ -177,7 +177,7 @@ function createCard(employees) {
           <ul class="list-group">
             <li class="list-group-item">ID: ${employee.id}</li>
             <li class="list-group-item">
-              Email: <a href="mailto:fs@gmail.com">${employee.email}</a>
+              Email: <a href="mailto:${employee.email}">${employee.email}</a>
             </li>
             <li class="list-group-item">Office number: ${employee.getExtra()}</li>
           </ul>
